@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/users');
 const decorator = require('./database/decorator');
+const cardRoutes = require('./routes/cards');
 
 // data vars
 const PORT = process.env.PORT;
@@ -22,6 +23,7 @@ app.use(decorator);
 
 // routes
 app.use('/api', userRoutes);
+app.use('/api', cardRoutes);
 app.get('/api/smoke', (req, res) => {
   res.json({ smoke: 'test' });
 });
